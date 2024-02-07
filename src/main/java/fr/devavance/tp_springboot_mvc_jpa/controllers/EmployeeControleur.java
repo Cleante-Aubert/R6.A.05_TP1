@@ -17,9 +17,10 @@ public class EmployeeControleur {
     }
 
     @RequestMapping("/employee")
-    public Employee show_all_employees(Model model){
-        model.addAttribute("Employees",employeeDAO.findAll());
-        return ;
+    public String show_all_employees(Model model){
+        model.addAttribute("employees",employeeDAO.findAll());
+
+        return view_employees;
 
     }
 
