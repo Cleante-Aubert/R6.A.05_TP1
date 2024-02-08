@@ -1,12 +1,12 @@
-package fr.devavance.tp_springboot_mvc_jpa.dao;
+    package fr.devavance.tp_springboot_mvc_jpa.dao;
 
-import fr.devavance.tp_springboot_mvc_jpa.beans.Employee;
+    import fr.devavance.tp_springboot_mvc_jpa.beans.Employee;
 
-import java.util.List;
+    import java.util.List;
 
-public interface IEmployeeDAO {
+    public interface IEmployeeDAO {
 
-    List<Employee> findAll();
-    void add(Employee employee);
+        List<Employee> findAll();
+        void add(Employee employee);
 
-}
+    }

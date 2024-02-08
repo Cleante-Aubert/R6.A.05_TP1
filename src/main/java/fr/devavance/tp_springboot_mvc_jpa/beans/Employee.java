@@ -4,12 +4,13 @@ public class Employee {
 
     private int id;
     private String name;
-    private String address;
+        private String address;
     private String email;
     private String phone;
 
     private Fonction function;
 
+    public Employee(){}
 
     public Employee(int id, String name, String address, String email, String phone, Fonction function) {
         this.id = id;
