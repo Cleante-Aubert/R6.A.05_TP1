@@ -37,9 +37,10 @@
     </br>
     </br>
 
-        <select name="color">
-        <option th:each="colorOpt : ${T(employee.Fonction).values()}"
-            th:value="${colorOpt}" th:text="${colorOpt}"></option>
+
+        <select name="fonction">
+        <option th:each="fonction : ${T(fr.devavance.tp_springboot_mvc_jpa.beans.Employee.Fonction).values()}"
+            th:value="${fonction}" th:text="${fonction}"></option>
         </select>
 
     <input type="submit" value="Submit" />
