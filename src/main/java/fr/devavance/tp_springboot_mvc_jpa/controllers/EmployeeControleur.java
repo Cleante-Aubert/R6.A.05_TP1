@@ -16,18 +16,18 @@ public class EmployeeControleur {
 
 
 
-    @RequestMapping("/employees")
+    @GetMapping("/employees")
     public String findAllEmployee(Model model) {
         model.addAttribute("employees", employeeDAO.findAll());
         model.addAttribute("employee", new Employee());
         return "views_employee";
     }
-/*
+
     @PostMapping("/addEmployee")
     public String addEmployee(Employee employee){
-
-        return "redirect:/";
+        employeeDAO.add(employee);
+        return "redirect:/employees";
     }
-*/
+
 }
 
