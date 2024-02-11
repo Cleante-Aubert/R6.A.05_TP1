@@ -1,55 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/picnic.css}" />
+
 <head>
     <meta charset="UTF-8">
-    <title>Vue des employés </title>
+    <title>Ajouter un Employé</title>
 </head>
 <body>
-
-<h1> Voici tout les employés </h1>
-
-<ul th:each="employee: ${employees}">
-    <li th:text="${employee.name}" th:attr =" style='background:'+${employee.getFunction.getCodeCouleur()}"  ></li>
+<h1>Liste des Employés</h1>
+<ul th:each="employee : ${employees}">
+    <li
+            th:attr="style=${'background:' + employee.fonction.codeCouleur}"
+            th:text="${employee.name}"></li>
 </ul>
 
-<form th:action="@{/addEmployee}" th:object="${employee}" method="post">
-
-    <label>  Name  </label>
-        <input type="text" placeholder="name" th:field="*{name}" />
-
-    </br>
-    </br>
-
-    <label>  Address  </label>
-        <input type="text" placeholder="address" th:field="*{address}"  />
-
-    </br>
-    </br>
-
-    <label>  Email  </label>
-        <input type="text" placeholder="email" th:field="*{email}"  />
-    </br>
-    </br>
-
-    <label>  Phone  </label>
-
-        <input type="text" placeholder="phone" th:field="*{phone}"  />
-    </br>
-    </br>
-
-
-        <select name="fonction">
-        <option th:each="fonction : ${T(fr.devavance.tp_springboot_mvc_jpa.beans.Employee.Fonction).values()}"
-            th:value="${fonction}" th:text="${fonction}"></option>
+<h2>Ajouter un nouvel employé</h2>
+<form th:action="@{/addemployee}" th:object="${employee}" method="post">
+    <div>
+        <label for="name">Nom :</label>
+        <input type="text" id="name" th:field="*{name}" />
+    </div><br/>
+    <div>
+        <label for="email">Email :</label>
+        <input type="email" id="email" th:field="*{email}" />
+    </div><br/>
+    <div>
+        <label for="phone">Téléphone :</label>
+        <input type="text" id="phone" th:field="*{phone}" />
+    </div><br/>
+    <div>
+        <label for="address">Adresse :</label>
+        <input type="text" id="address" th:field="*{address}" />
+    </div><br/>
+    <div>
+        <label for="fonction">Fonction :</label>
+        <select id="fonction" name="fonction" th:field="*{fonction}">
+            <option th:each="fonction : ${T(fr.devavance.tp_springboot_mvc_jpa.beans.Fonction).values()}"
+                    th:value="${fonction}" th:text="${fonction}"></option>
         </select>
-
-    <input type="submit" value="Submit" />
-
+    </div><br/>
+    <div>
+        <button type="submit">Ajouter</button>
+    </div>
 </form>
-
-
-
-
-
 </body>
 </html>

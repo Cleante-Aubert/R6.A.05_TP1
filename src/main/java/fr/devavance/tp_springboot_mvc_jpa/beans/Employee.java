@@ -1,94 +1,84 @@
 package fr.devavance.tp_springboot_mvc_jpa.beans;
+import jakarta.persistence.*;
 
+
+// Marque la classe comme une entité JPA
+@Entity
+@Table(name = "employees")
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    private int id;
     private String name;
-        private String address;
+    private String address;
     private String email;
     private String phone;
 
-    private Fonction function;
+
+    Fonction fonction;
+
 
     public Employee(){}
 
-    public Employee(int id, String name, String address, String email, String phone, Fonction function) {
-        this.id = id;
+
+    public Employee(long id,String name, String address, String email, String phone, Fonction fonction) {
+        this.id = id ;
         this.name = name;
         this.address = address;
         this.email = email;
         this.phone = phone;
-        this.function = function;
+        this.fonction = fonction;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setFunction(Fonction function) {
-        this.function = function;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPhone() {
         return phone;
     }
 
-    public Fonction getFunction() {
-        return function;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public enum Fonction {
-        CHEF_PROJET("blue"),
-        DEV_OPS("green"),
-        DEV_WEB("purple"),
-        DEV_AI("yellow"),
-        SOFTWARE_ARCHITECT("orange");
-        private final String codeCouleur;
-
-
-        private Fonction(String codeCouleur) {
-            this.codeCouleur = codeCouleur;
-        }
-
-        public String getCodeCouleur() {
-            return this.codeCouleur;
-        }
-
+    public Fonction getFonction() {
+        return fonction;
     }
 
-
-
+    public void setFonction(Fonction fonction) {
+        this.fonction = fonction;
+    }
 
 }
