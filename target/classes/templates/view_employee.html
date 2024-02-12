@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiche employée</title>
+</head>
+<body>
+
+<h1> Fiche employée </h1>
+
+<a th:href="@{/employee/home}" >Home</a>
+
+<div>
+    <ul>
+        <li>Nom : <span th:text="${employee.name}"></span></li>
+        </br>
+
+        <li>Adresse : <span th:text="${employee.address}"></span></li>
+        </br>
+
+        <li>Courriel : <span th:text="${employee.email}"></span></li>
+        </br>
+
+        <li> Téléphone : <span th:text="${employee.phone}" ></span>  </li>
+        </br>
+
+        <li> Fonction : <span th:text="${employee.fonction}" ></span>  </li>
+
+    </ul>
+
+</div>
+
+
+</body>
+</html>
